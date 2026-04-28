@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Boho The Sky Café — Kolkata's favorite rooftop café in Garia, beside Kavi Nazrul Metro Station. Book your table for dates, birthdays, and celebrations."/>
+<meta name="keywords" content="rooftop cafe in Kolkata, best cafe in Garia, couples cafe near metro, rooftop cafe Garia, Boho Sky Cafe"/>
+<title>Boho The Sky Café | Kolkata's Favorite Rooftop Escape</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#F5F0E8;
+  --beige:#E8DFD0;
+  --terracotta:#C4703A;
+  --terra-dark:#8B4A22;
+  --terra-light:#E8936A;
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --charcoal:#1C1814;
+  --dark-bg:#120F0C;
+  --mid-dark:#1E1812;
+  --card-dark:#2A2118;
+  --text-light:#F0EAE0;
+  --text-muted:#A89880;
+  --text-dim:#6B5E52;
+  --white:#FFFFFF;
+  --font-display:'Cormorant Garamond',serif;
+  --font-heading:'Playfair Display',serif;
+  --font-body:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark-bg);color:var(--text-light);font-family:var(--font-body);overflow-x:hidden;}
+
+/* NAVBAR */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s ease;background:transparent;}
+nav.scrolled{background:rgba(18,15,12,0.95);backdrop-filter:blur(20px);padding:0.9rem 4rem;border-bottom:1px solid rgba(201,168,76,0.15);}
+.nav-logo{font-family:var(--font-display);font-size:1.6rem;font-weight:300;letter-spacing:0.08em;color:var(--gold-light);text-decoration:none;}
+.nav-logo span{font-style:italic;color:var(--terra-light);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--text-muted);font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:400;transition:color 0.3s;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-cta{background:linear-gradient(135deg,var(--terracotta),var(--terra-dark));color:var(--cream);padding:0.6rem 1.6rem;border-radius:2px;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:all 0.3s;}
+.nav-cta:hover{background:linear-gradient(135deg,var(--terra-light),var(--terracotta));transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:1.5px;background:var(--gold-light);transition:all 0.3s;}
+
+/* HERO */
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(18,15,12,0.3) 0%,rgba(18,15,12,0.15) 40%,rgba(18,15,12,0.7) 80%,rgba(18,15,12,0.95) 100%),
+  radial-gradient(ellipse at 70% 30%,rgba(196,112,58,0.15) 0%,transparent 60%),
+  url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80') center/cover no-repeat;}
+.hero-particles{position:absolute;inset:0;overflow:hidden;}
+.particle{position:absolute;width:1px;height:1px;background:var(--gold-light);border-radius:50%;animation:float-up linear infinite;}
+@keyframes float-up{0%{transform:translateY(100vh) scale(0);opacity:0;}20%{opacity:0.6;}100%{transform:translateY(-20vh) scale(1.5);opacity:0;}}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:0 2rem;}
+.hero-eyebrow{font-family:var(--font-body);font-size:0.78rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fade-up 1s 0.3s forwards;}
+.hero-title{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7rem);font-weight:300;line-height:1.05;letter-spacing:0.02em;margin-bottom:1.2rem;opacity:0;animation:fade-up 1s 0.5s forwards;}
+.hero-title em{font-style:italic;color:var(--terra-light);}
+.hero-title strong{display:block;font-weight:600;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:1rem;color:var(--text-muted);line-height:1.8;max-width:560px;margin:0 auto 2.5rem;font-weight:300;opacity:0;animation:fade-up 1s 0.7s forwards;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fade-up 1s 0.9s forwards;}
+.btn-primary{background:linear-gradient(135deg,var(--terracotta),var(--terra-dark));color:var(--cream);padding:1rem 2.4rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.3s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,112,58,0.4);}
+.btn-outline{border:1px solid rgba(201,168,76,0.4);color:var(--gold-light);padding:1rem 2.4rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.3s;}
+.btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,0.08);transform:translateY(-2px);}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--text-dim);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;animation:pulse 2s infinite;}
+.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);}
+@keyframes fade-up{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:0.5;}50%{opacity:1;}}
+
+/* SECTION COMMONS */
+section{padding:6rem 4rem;}
+.section-label{font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;font-family:var(--font-body);}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;color:var(--cream);}
+.section-title em{font-style:italic;color:var(--terra-light);}
+.divider{width:60px;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin:1.5rem 0;}
+
+/* ABOUT */
+.about{background:linear-gradient(135deg,var(--mid-dark) 0%,var(--dark-bg) 100%);position:relative;overflow:hidden;}
+.about::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(196,112,58,0.06) 0%,transparent 70%);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto;}
+.about-img-stack{position:relative;height:500px;}
+.about-img-main{width:78%;height:420px;object-fit:cover;border-radius:4px;position:absolute;top:0;right:0;}
+.about-img-accent{width:55%;height:280px;object-fit:cover;border-radius:4px;position:absolute;bottom:0;left:0;border:4px solid var(--dark-bg);}
+.about-badge{position:absolute;top:50%;right:-20px;transform:translateY(-50%);background:var(--terracotta);color:var(--cream);padding:1.2rem;border-radius:50%;width:90px;height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:var(--font-display);}
+.about-badge strong{font-size:1.5rem;font-weight:600;line-height:1;}
+.about-badge span{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;}
+.about-text p{color:var(--text-muted);line-height:1.9;font-weight:300;margin-bottom:1.2rem;}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;}
+.stat-item{text-align:center;padding:1.2rem;border:1px solid rgba(201,168,76,0.12);border-radius:4px;}
+.stat-num{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--gold-light);}
+.stat-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-top:0.3rem;}
+
+/* MENU */
+.menu{background:var(--dark-bg);}
+.menu-header{text-align:center;max-width:600px;margin:0 auto 4rem;}
+.menu-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:3rem;}
+.tab-btn{padding:0.6rem 1.4rem;border:1px solid rgba(201,168,76,0.2);background:transparent;color:var(--text-muted);font-family:var(--font-body);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.3s;}
+.tab-btn.active,.tab-btn:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,168,76,0.06);}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto;}
+.menu-card{background:var(--card-dark);border:1px solid rgba(201,168,76,0.08);border-radius:6px;overflow:hidden;transition:all 0.4s;}
+.menu-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,0.25);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.menu-card-img{height:200px;overflow:hidden;position:relative;}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;}
+.menu-card:hover .menu-card-img img{transform:scale(1.08);}
+.menu-card-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,20,14,0.7),transparent);}
+.menu-card-body{padding:1.4rem;}
+.menu-item-name{font-family:var(--font-heading);font-size:1.1rem;color:var(--cream);margin-bottom:0.4rem;}
+.menu-item-desc{font-size:0.82rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;}
+.menu-item-footer{display:flex;justify-content:space-between;align-items:center;}
+.menu-price{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--gold-light);}
+.menu-badge{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:2px;background:rgba(196,112,58,0.15);color:var(--terra-light);border:1px solid rgba(196,112,58,0.2);}
+.menu-category{display:none;}
+.menu-category.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+
+/* GALLERY */
+.gallery{background:var(--mid-dark);overflow:hidden;}
+.gallery-header{text-align:center;margin-bottom:3rem;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px;gap:6px;max-width:1300px;margin:0 auto;}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer;}
+.gallery-item:first-child{grid-column:span 2;grid-row:span 2;}
+.gallery-item:nth-child(2){grid-column:span 1;grid-row:1;}
+.gallery-item:nth-child(3){grid-column:span 1;grid-row:1;}
+.gallery-item:nth-child(4){grid-column:span 1;grid-row:2;}
+.gallery-item:nth-child(5){grid-column:span 1;grid-row:2;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;}
+.gallery-item:hover img{transform:scale(1.06);}
+.gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,15,12,0.6),transparent);opacity:0;transition:opacity 0.3s;}
+.gallery-item:hover .gallery-item-overlay{opacity:1;}
+.gallery-tag{position:absolute;bottom:1rem;left:1rem;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream);opacity:0;transform:translateY(10px);transition:all 0.3s;}
+.gallery-item:hover .gallery-tag{opacity:1;transform:translateY(0);}
+
+/* BOOKING */
+.booking{background:linear-gradient(135deg,rgba(196,112,58,0.08) 0%,var(--dark-bg) 50%,rgba(201,168,76,0.05) 100%);position:relative;}
+.booking-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;max-width:1100px;margin:0 auto;align-items:start;}
+.booking-info p{color:var(--text-muted);line-height:1.9;margin-bottom:1.5rem;font-weight:300;}
+.booking-perks{list-style:none;display:flex;flex-direction:column;gap:0.8rem;margin-top:2rem;}
+.booking-perks li{display:flex;align-items:center;gap:0.8rem;color:var(--text-muted);font-size:0.88rem;}
+.perk-dot{width:6px;height:6px;border-radius:50%;background:var(--terracotta);flex-shrink:0;}
+.booking-form{background:var(--card-dark);border:1px solid rgba(201,168,76,0.1);border-radius:8px;padding:2.5rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+.form-group label{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.12);color:var(--text-light);padding:0.85rem 1rem;border-radius:4px;font-family:var(--font-body);font-size:0.9rem;transition:border-color 0.3s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(201,168,76,0.4);}
+.form-group select option{background:var(--card-dark);color:var(--text-light);}
+.form-group textarea{resize:none;height:80px;}
+.btn-submit{width:100%;background:linear-gradient(135deg,var(--terracotta),var(--terra-dark));color:var(--cream);border:none;padding:1.1rem;font-family:var(--font-body);font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:4px;transition:all 0.3s;margin-top:0.5rem;}
+.btn-submit:hover{background:linear-gradient(135deg,var(--terra-light),var(--terracotta));transform:translateY(-1px);}
+
+/* EVENTS */
+.events{background:var(--dark-bg);}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:3rem auto 0;}
+.event-card{position:relative;border-radius:6px;overflow:hidden;height:380px;cursor:pointer;}
+.event-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;}
+.event-card:hover img{transform:scale(1.06);}
+.event-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(18,15,12,0.9) 0%,rgba(18,15,12,0.2) 60%,transparent 100%);transition:background 0.4s;}
+.event-card:hover .event-card-overlay{background:linear-gradient(to top,rgba(18,15,12,0.95) 0%,rgba(18,15,12,0.4) 60%,rgba(196,112,58,0.1) 100%);}
+.event-card-content{position:absolute;bottom:0;left:0;right:0;padding:2rem;}
+.event-icon{font-size:2rem;margin-bottom:0.8rem;}
+.event-title{font-family:var(--font-heading);font-size:1.4rem;color:var(--cream);margin-bottom:0.5rem;}
+.event-desc{font-size:0.82rem;color:var(--text-muted);line-height:1.7;transform:translateY(10px);opacity:0;transition:all 0.4s;}
+.event-card:hover .event-desc{transform:translateY(0);opacity:1;}
+
+/* REVIEWS */
+.reviews{background:var(--mid-dark);}
+.reviews-header{text-align:center;margin-bottom:3rem;}
+.rating-overall{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:2rem 0;}
+.rating-big{font-family:var(--font-display);font-size:4.5rem;font-weight:300;color:var(--gold-light);}
+.rating-info{display:flex;flex-direction:column;gap:0.3rem;}
+.stars{color:var(--gold);font-size:1.2rem;letter-spacing:2px;}
+.rating-count{color:var(--text-dim);font-size:0.82rem;}
+.reviews-slider{overflow:hidden;max-width:1200px;margin:0 auto;}
+.reviews-track{display:flex;gap:1.5rem;transition:transform 0.5s ease;padding:1rem 0;}
+.review-card{flex:0 0 calc(33.33% - 1rem);background:var(--card-dark);border:1px solid rgba(201,168,76,0.08);border-radius:8px;padding:1.8rem;position:relative;}
+.review-stars{color:var(--gold);font-size:0.9rem;margin-bottom:1rem;}
+.review-text{color:var(--text-muted);line-height:1.8;font-size:0.88rem;font-style:italic;font-family:var(--font-display);font-size:1rem;font-weight:300;margin-bottom:1.5rem;}
+.reviewer{display:flex;align-items:center;gap:0.8rem;}
+.reviewer-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--terracotta),var(--terra-dark));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--cream);}
+.reviewer-name{font-weight:500;font-size:0.88rem;color:var(--cream);}
+.reviewer-meta{font-size:0.72rem;color:var(--text-dim);}
+.reviews-nav{display:flex;gap:0.8rem;justify-content:center;margin-top:2rem;}
+.rev-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(201,168,76,0.2);background:transparent;color:var(--gold-light);cursor:pointer;font-size:1.1rem;transition:all 0.3s;display:flex;align-items:center;justify-content:center;}
+.rev-btn:hover{border-color:var(--gold);background:rgba(201,168,76,0.08);}
+
+/* CONTACT */
+.contact{background:var(--dark-bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1100px;margin:3rem auto 0;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:2rem;}
+.contact-item{display:flex;gap:1.2rem;align-items:flex-start;}
+.contact-icon{width:46px;height:46px;border:1px solid rgba(201,168,76,0.2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.contact-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+.contact-val{color:var(--text-muted);font-size:0.9rem;line-height:1.6;}
+.map-container{border-radius:8px;overflow:hidden;border:1px solid rgba(201,168,76,0.1);}
+.map-container iframe{width:100%;height:350px;border:none;filter:grayscale(40%) invert(90%) hue-rotate(180deg);}
+.social-links{display:flex;gap:1rem;margin-top:1.5rem;}
+.social-btn{display:flex;align-items:center;gap:0.6rem;padding:0.7rem 1.4rem;border:1px solid rgba(201,168,76,0.15);border-radius:4px;color:var(--text-muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:all 0.3s;}
+.social-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+.wa-btn{background:linear-gradient(135deg,#25D366,#128C7E);border-color:transparent;color:var(--white);}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,0.3);}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:3rem 4rem 2rem;border-top:1px solid rgba(201,168,76,0.08);}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+.footer-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:300;color:var(--gold-light);}
+.footer-logo span{font-style:italic;color:var(--terra-light);}
+.footer-tagline{font-size:0.75rem;color:var(--text-dim);letter-spacing:0.1em;margin-top:0.3rem;}
+.footer-links{display:flex;gap:2rem;list-style:none;}
+.footer-links a{text-decoration:none;color:var(--text-dim);font-size:0.78rem;letter-spacing:0.1em;transition:color 0.3s;}
+.footer-links a:hover{color:var(--gold-light);}
+.footer-copy{width:100%;text-align:center;font-size:0.72rem;color:var(--text-dim);padding-top:2rem;border-top:1px solid rgba(255,255,255,0.04);}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);animation:wa-bounce 3s ease infinite;transition:transform 0.3s;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:28px;height:28px;fill:white;}
+@keyframes wa-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s,transform 0.8s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  nav.scrolled{padding:0.8rem 1.5rem;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  section{padding:4rem 1.5rem;}
+  .about-grid,.booking-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+  .about-img-stack{height:300px;}
+  .events-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gallery-item:first-child{grid-column:span 2;}
+  .gallery-item:nth-child(4){grid-column:span 1;}
+  .form-row{grid-template-columns:1fr;}
+  .review-card{flex:0 0 calc(100% - 0rem);}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-links{flex-wrap:wrap;justify-content:center;}
+  .hero-title{font-size:clamp(2.5rem,10vw,4rem);}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo"><span>Boho</span> The Sky Café</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Reserve a Table</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Garia · Kolkata · Est. 2020</p>
+    <h1 class="hero-title">Kolkata's Favorite<br><em>Rooftop</em> <strong>Escape</strong></h1>
+    <p class="hero-sub">Where skyline views meet soulful food, golden evenings become stories, and every visit feels like a memory worth keeping.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">Book a Table</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+      <a href="#contact" class="btn-outline">Contact Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-stack reveal">
+      <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800&q=80" alt="Boho Sky Café rooftop" class="about-img-main"/>
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80" alt="Café interior" class="about-img-accent"/>
+      <div class="about-badge"><strong>4.4</strong><span>★ Rating</span></div>
+    </div>
+    <div class="about-text reveal">
+      <p class="section-label">Our Story</p>
+      <h2 class="section-title">A Rooftop Born<br>from <em>Wanderlust</em></h2>
+      <div class="divider"></div>
+      <p>Tucked above the lively streets of Garia, right beside Kavi Nazrul Metro Station, Boho The Sky Café was born from a simple dream — to create a space where South Kolkata's youth could breathe, feast, and feel free.</p>
+      <p>We blend bohemian soul with rooftop luxury. Hanging greens, warm fairy lights, rustic wood, and a horizon that turns gold at dusk — this is where birthdays are celebrated, dates become evenings to remember, and friendships are deepened over great food.</p>
+      <p>From crispy thin-crust pizzas to creamy mocktails, our menu is crafted to delight — casual enough for everyday hangouts, elevated enough for every occasion.</p>
+      <div class="about-stats">
+        <div class="stat-item"><div class="stat-num">3,100+</div><div class="stat-label">Happy Reviews</div></div>
+        <div class="stat-item"><div class="stat-num">4.4★</div><div class="stat-label">Google Rating</div></div>
+        <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Good Memories</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="menu-header reveal">
+    <p class="section-label">What We Serve</p>
+    <h2 class="section-title">A Menu Crafted<br>with <em>Love & Fire</em></h2>
+    <div class="divider" style="margin:1.5rem auto;"></div>
+  </div>
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="switchTab('starters',this)">Starters</button>
+    <button class="tab-btn" onclick="switchTab('pizza',this)">Pizza</button>
+    <button class="tab-btn" onclick="switchTab('pasta',this)">Pasta</button>
+    <button class="tab-btn" onclick="switchTab('burgers',this)">Burgers</button>
+    <button class="tab-btn" onclick="switchTab('continental',this)">Continental</button>
+    <button class="tab-btn" onclick="switchTab('mocktails',this)">Mocktails</button>
+    <button class="tab-btn" onclick="switchTab('desserts',this)">Desserts</button>
+  </div>
+
+  <div id="starters" class="menu-category active">
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80" alt="Chicken Wings"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Honey Glazed Chicken Wings</div><div class="menu-item-desc">Crispy wings tossed in our signature honey glaze with a hint of chilli. A bestseller at Boho.</div><div class="menu-item-footer"><span class="menu-price">₹249</span><span class="menu-badge">Bestseller</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Reshmi Kebab"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Reshmi Chicken Kebab</div><div class="menu-item-desc">Tender malai-marinated chicken skewers grilled to silky perfection. Served with mint chutney.</div><div class="menu-item-footer"><span class="menu-price">₹279</span><span class="menu-badge">Must Try</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=600&q=80" alt="Paneer Tikka"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Paneer Tikka Platter</div><div class="menu-item-desc">Smoky, char-grilled cottage cheese cubes marinated in spiced yoghurt. Great for vegetarians.</div><div class="menu-item-footer"><span class="menu-price">₹229</span><span class="menu-badge">Veg</span></div></div></div>
+  </div>
+
+  <div id="pizza" class="menu-category">
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="BBQ Chicken Pizza"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">BBQ Chicken Pizza</div><div class="menu-item-desc">Thin-crust base loaded with smoky BBQ chicken, caramelised onions, mozzarella & jalapeños.</div><div class="menu-item-footer"><span class="menu-price">₹329</span><span class="menu-badge">Most Ordered</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80" alt="Margherita"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Classic Margherita</div><div class="menu-item-desc">San Marzano tomato base, fresh mozzarella, basil on our signature thin crust. Simple perfection.</div><div class="menu-item-footer"><span class="menu-price">₹249</span><span class="menu-badge">Veg</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=600&q=80" alt="Mushroom Pizza"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Mushroom & Truffle Pizza</div><div class="menu-item-desc">Wild mushroom, truffle oil, cream cheese, rosemary on a golden-baked base. Elevated elegance.</div><div class="menu-item-footer"><span class="menu-price">₹349</span><span class="menu-badge">Chef's Pick</span></div></div></div>
+  </div>
+
+  <div id="pasta" class="menu-category">
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt="Mac & Cheese"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Boho Mac & Cheese</div><div class="menu-item-desc">Our legendary creamy three-cheese macaroni with a golden breadcrumb crust. Pure comfort.</div><div class="menu-item-footer"><span class="menu-price">₹269</span><span class="menu-badge">Fan Fave</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=80" alt="Arrabiata"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Penne Arrabiata</div><div class="menu-item-desc">Spicy tomato and garlic sauce with penne pasta, tossed in fresh parsley and olive oil.</div><div class="menu-item-footer"><span class="menu-price">₹229</span><span class="menu-badge">Veg</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?w=600&q=80" alt="Chicken Alfredo"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Chicken Alfredo</div><div class="menu-item-desc">Grilled chicken strips in a rich parmesan cream sauce over fettuccine. Indulgently smooth.</div><div class="menu-item-footer"><span class="menu-price">₹299</span><span class="menu-badge">Rich Pick</span></div></div></div>
+  </div>
+
+  <div id="burgers" class="menu-category">
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Double Smash Burger"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Boho Double Smash Burger</div><div class="menu-item-desc">Double smashed beef patties, American cheese, house sauce, pickles & caramelised onions.</div><div class="menu-item-footer"><span class="menu-price">₹319</span><span class="menu-badge">Crowd Fave</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80" alt="Crispy Chicken Burger"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Crispy Chicken Burger</div><div class="menu-item-desc">Southern-fried chicken fillet, coleslaw, jalapeño mayo on a toasted brioche bun.</div><div class="menu-item-footer"><span class="menu-price">₹289</span><span class="menu-badge">Popular</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1586816001966-79b736744398?w=600&q=80" alt="Mushroom Burger"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Stuffed Mushroom Burger</div><div class="menu-item-desc">Portobello mushroom, cream cheese, rocket leaves & chipotle sauce in a sesame bun.</div><div class="menu-item-footer"><span class="menu-price">₹259</span><span class="menu-badge">Veg</span></div></div></div>
+  </div>
+
+  <div id="continental" class="menu-category">
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80" alt="Grilled Chicken"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Herb Grilled Chicken</div><div class="menu-item-desc">Juicy free-range chicken breast marinated in rosemary-lemon-garlic, served with seasonal veg.</div><div class="menu-item-footer"><span class="menu-price">₹369</span><span class="menu-badge">Premium</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80" alt="Salad Bowl"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Boho Power Salad Bowl</div><div class="menu-item-desc">Quinoa, avocado, cherry tomatoes, feta, roasted chickpeas & lemon-tahini dressing.</div><div class="menu-item-footer"><span class="menu-price">₹249</span><span class="menu-badge">Healthy</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&q=80" alt="Bruschetta"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Classic Bruschetta</div><div class="menu-item-desc">Toasted ciabatta with heirloom tomatoes, basil chiffonade, garlic & extra virgin olive oil.</div><div class="menu-item-footer"><span class="menu-price">₹199</span><span class="menu-badge">Light Bite</span></div></div></div>
+  </div>
+
+  <div id="mocktails" class="menu-category">
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80" alt="Virgin Mojito"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Boho Signature Mojito</div><div class="menu-item-desc">Fresh mint, lime, sugar cane, soda & a dash of blue curacao for that sky-café spirit.</div><div class="menu-item-footer"><span class="menu-price">₹179</span><span class="menu-badge">Signature</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=80" alt="Mango Sunrise"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Mango Sunrise Fizz</div><div class="menu-item-desc">Alphonso mango purée, grenadine, lime foam & sparkling water — liquid sunshine in a glass.</div><div class="menu-item-footer"><span class="menu-price">₹189</span><span class="menu-badge">Seasonal</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1470338745628-171cf53de3a8?w=600&q=80" alt="Berry Lemonade"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Rooftop Berry Lemonade</div><div class="menu-item-desc">Mixed berry compote, fresh lemon, honey & crushed ice. Refreshing as a skyline breeze.</div><div class="menu-item-footer"><span class="menu-price">₹169</span><span class="menu-badge">Refreshing</span></div></div></div>
+  </div>
+
+  <div id="desserts" class="menu-category">
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80" alt="Chocolate Brownie"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Molten Chocolate Brownie</div><div class="menu-item-desc">Warm gooey dark chocolate brownie with Belgian chocolate sauce & vanilla ice cream scoop.</div><div class="menu-item-footer"><span class="menu-price">₹179</span><span class="menu-badge">Indulgence</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Cheesecake"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">NY Style Cheesecake</div><div class="menu-item-desc">Classic dense and creamy cheesecake on a buttery graham base with fresh berry coulis.</div><div class="menu-item-footer"><span class="menu-price">₹199</span><span class="menu-badge">Classic</span></div></div></div>
+    <div class="menu-card"><div class="menu-card-img"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Waffle"/><div class="menu-card-img-overlay"></div></div><div class="menu-card-body"><div class="menu-item-name">Boho Loaded Waffle</div><div class="menu-item-desc">Crisp Belgian waffle, salted caramel drizzle, fresh strawberries & whipped cream. Dreamy.</div><div class="menu-item-footer"><span class="menu-price">₹219</span><span class="menu-badge">Dreamy</span></div></div></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header reveal">
+    <p class="section-label">Moments at Boho</p>
+    <h2 class="section-title">The <em>Aesthetic</em> You Deserve</h2>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80" alt="Rooftop Night View"/><div class="gallery-item-overlay"></div><div class="gallery-tag">Rooftop Nights</div></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Food Platter"/><div class="gallery-item-overlay"></div><div class="gallery-tag">Food Platters</div></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?w=600&q=80" alt="Sunset View"/><div class="gallery-item-overlay"></div><div class="gallery-tag">Sunset Vibes</div></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=900&q=80" alt="Celebration"/><div class="gallery-item-overlay"></div><div class="gallery-tag">Celebrations</div></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Coffee"/><div class="gallery-item-overlay"></div><div class="gallery-tag">Coffee Corner</div></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-grid">
+    <div class="booking-info reveal">
+      <p class="section-label">Reservations</p>
+      <h2 class="section-title">Reserve Your <em>Sky Spot</em></h2>
+      <div class="divider"></div>
+      <p>The rooftop has limited seats to ensure every guest has an intimate, unhurried experience. We recommend booking in advance, especially for weekends, celebrations, and couple evenings.</p>
+      <p>For large private events, reach out via WhatsApp for custom packages.</p>
+      <ul class="booking-perks">
+        <li><div class="perk-dot"></div>Birthday decoration packages available</li>
+        <li><div class="perk-dot"></div>Private rooftop bookings for groups</li>
+        <li><div class="perk-dot"></div>Special couple evening setups</li>
+        <li><div class="perk-dot"></div>Open daily 12 PM – 10 PM</li>
+        <li><div class="perk-dot"></div>Walk-ins welcome subject to availability</li>
+      </ul>
+    </div>
+    <div class="booking-form reveal">
+      <p class="section-label" style="margin-bottom:1.5rem;">Table Booking Form</p>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name"/></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Date</label><input type="date"/></div>
+        <div class="form-group"><label>Time</label><input type="time" min="12:00" max="21:30"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Number of Guests</label><select><option>1 Guest</option><option>2 Guests</option><option>3-4 Guests</option><option>5-6 Guests</option><option>7-10 Guests</option><option>10+ Guests</option></select></div>
+        <div class="form-group"><label>Occasion</label><select><option>Regular Visit</option><option>Birthday Celebration</option><option>Date Night</option><option>Anniversary</option><option>Friends Outing</option><option>Private Event</option><option>Other</option></select></div>
+      </div>
+      <div class="form-group"><label>Special Requests</label><textarea placeholder="Any dietary requirements, decorations, or special arrangements..."></textarea></div>
+      <button class="btn-submit" onclick="submitBooking()">Confirm Reservation →</button>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events" id="events">
+  <div style="text-align:center;max-width:600px;margin:0 auto 1rem;" class="reveal">
+    <p class="section-label">Special Occasions</p>
+    <h2 class="section-title">Make Every <em>Moment</em> Unforgettable</h2>
+  </div>
+  <div class="events-grid reveal">
+    <div class="event-card">
+      <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Birthday"/>
+      <div class="event-card-overlay"></div>
+      <div class="event-card-content">
+        <div class="event-icon">🎂</div>
+        <div class="event-title">Birthday Parties</div>
+        <div class="event-desc">Surprise your loved one with rooftop fairy lights, custom cakes, balloon décor, and a view that makes every birthday feel cinematic. We handle everything.</div>
+      </div>
+    </div>
+    <div class="event-card">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Date Night"/>
+      <div class="event-card-overlay"></div>
+      <div class="event-card-content">
+        <div class="event-icon">🕯️</div>
+        <div class="event-title">Couple Date Nights</div>
+        <div class="event-desc">Candlelit rooftop table, curated couple menu, rose petals, and the Kolkata skyline as your backdrop. Because your story deserves a beautiful setting.</div>
+      </div>
+    </div>
+    <div class="event-card">
+      <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80" alt="Group Celebration"/>
+      <div class="event-card-overlay"></div>
+      <div class="event-card-content">
+        <div class="event-icon">🥂</div>
+        <div class="event-title">Private Rooftop Events</div>
+        <div class="event-desc">Book the entire rooftop for corporate gatherings, friend celebrations, farewell parties, or anniversaries. Custom packages, DJ slots, and full event support available.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header reveal">
+    <p class="section-label">What Guests Say</p>
+    <h2 class="section-title">Loved by <em>Kolkata</em></h2>
+    <div class="rating-overall">
+      <div class="rating-big">4.4</div>
+      <div class="rating-info">
+        <div class="stars">★★★★½</div>
+        <div style="color:var(--text-muted);font-size:0.88rem;margin-top:0.3rem;">Based on 3,100+ Google Reviews</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-slider reveal">
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"We booked for a birthday celebration and had a wonderful experience. The service was excellent, staff were very polite, patient, and well behaved. The food quality was amazing and everything was served on time."</div><div class="reviewer"><div class="reviewer-avatar">SD</div><div><div class="reviewer-name">Sonia Drozario</div><div class="reviewer-meta">3 months ago · 11 photos</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"You must try the mac & cheese. The ambiance was nice and aesthetic. The food was great. The price is not very pocket-friendly, but it's not too expensive either. Will definitely visit again."</div><div class="reviewer"><div class="reviewer-avatar">N</div><div><div class="reviewer-name">Nandini</div><div class="reviewer-meta">2 months ago · Local Guide</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★☆</div><div class="review-text">"A pinnacle of aesthetic charm. From the lush greenery to the rustic wooden tables — the place has a vibe you just can't find elsewhere in South Kolkata. Great for birthdays and special occasions."</div><div class="reviewer"><div class="reviewer-avatar">AD</div><div><div class="reviewer-name">Anushka Das</div><div class="reviewer-meta">8 months ago · Local Guide</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Their thin-crust pizzas, creamy pasta, and loaded burgers are a must-try. The rooftop setting is absolutely perfect for evenings with friends or a romantic dinner for two. Highly recommend!"</div><div class="reviewer"><div class="reviewer-avatar">RK</div><div><div class="reviewer-name">Rahul Koley</div><div class="reviewer-meta">1 month ago</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Ambiance, food, service and behaviour of the staff — everything is top-notch. The honey glazed chicken wings and BBQ pizza are absolute must-orders. We'll be back for sure!"</div><div class="reviewer"><div class="reviewer-avatar">PM</div><div><div class="reviewer-name">Priya Majumdar</div><div class="reviewer-meta">5 months ago · 3 photos</div></div></div></div>
+    </div>
+  </div>
+  <div class="reviews-nav">
+    <button class="rev-btn" onclick="scrollReviews(-1)">←</button>
+    <button class="rev-btn" onclick="scrollReviews(1)">→</button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div style="text-align:center;max-width:600px;margin:0 auto 1rem;" class="reveal">
+    <p class="section-label">Find Us</p>
+    <h2 class="section-title">Come Visit<br><em>The Sky</em></h2>
+    <div class="divider" style="margin:1.5rem auto;"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div><div class="contact-label">Address</div><div class="contact-val">Lohar Bridge, 1518, Garia Main Rd, beside Kavi Nazrul Metro Station, Barhans, Garia, Rajpur Sonarpur, West Bengal 700084</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div><div class="contact-label">Hours</div><div class="contact-val">Open Daily: 12:00 PM – 10:00 PM<br>Last Order: 9:30 PM</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div><div class="contact-label">Reservations</div><div class="contact-val">+91 XXXXX XXXXX<br><a href="https://wa.me/91XXXXXXXXXX" style="color:var(--terra-light);text-decoration:none;">WhatsApp Us for Bookings</a></div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📸</div>
+        <div><div class="contact-label">Follow Us</div><div class="contact-val">@boho_theskycafe<br>Tag us on Instagram!</div></div>
+      </div>
+      <div class="social-links">
+        <a href="https://wa.me/91XXXXXXXXXX" class="social-btn wa-btn">💬 WhatsApp Booking</a>
+        <a href="https://instagram.com" class="social-btn">📷 Instagram</a>
+        <a href="https://zomato.com" class="social-btn">Order Online</a>
+      </div>
+    </div>
+    <div class="map-container reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.2!2d88.3920!3d22.4627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027b6b6c8e8c17%3A0x8c8e8f5f5f5f5f5f!2sKavi%20Nazrul%20Metro%20Station%2C%20Garia%2C%20Kolkata!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><span>Boho</span> The Sky Café</div>
+      <div class="footer-tagline">বোহো দ্য স্কাই ক্যাফে · Garia, Kolkata</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#booking">Book Table</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-copy">© 2025 Boho The Sky Café · All Rights Reserved · Rooftop Café · Garia, Kolkata</div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/91XXXXXXXXXX" class="wa-float" target="_blank" title="Book via WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// Particles
+(function(){
+  const p=document.getElementById('particles');
+  for(let i=0;i<25;i++){
+    const d=document.createElement('div');
+    d.className='particle';
+    d.style.left=Math.random()*100+'%';
+    d.style.animationDelay=Math.random()*8+'s';
+    d.style.animationDuration=(6+Math.random()*8)+'s';
+    p.appendChild(d);
+  }
+})();
+
+// Menu tabs
+function switchTab(cat,btn){
+  document.querySelectorAll('.menu-category').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(cat).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Reviews slider
+let reviewPos=0;
+function scrollReviews(dir){
+  const track=document.getElementById('reviewsTrack');
+  const cards=track.querySelectorAll('.review-card');
+  const max=cards.length-3;
+  reviewPos=Math.max(0,Math.min(max,reviewPos+dir));
+  const w=cards[0].offsetWidth+24;
+  track.style.transform='translateX(-'+reviewPos*w+'px)';
+}
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Booking submit
+function submitBooking(){
+  const btn=document.querySelector('.btn-submit');
+  btn.textContent='✓ Reservation Confirmed!';
+  btn.style.background='linear-gradient(135deg,#2d7a4f,#1a5c39)';
+  setTimeout(()=>{btn.textContent='Confirm Reservation →';btn.style.background='';},3000);
+}
+
+// Mobile menu (simple toggle for nav)
+function toggleMenu(){
+  const links=document.querySelector('.nav-links');
+  const cta=document.querySelector('.nav-cta');
+  if(!links)return;
+  const open=links.style.display==='flex';
+  links.style.cssText=open?'':'display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(18,15,12,0.98);padding:2rem;gap:1.5rem;z-index:999;';
+  if(cta)cta.style.display=open?'':'block';
+}
+</script>
+</body>
+</html>
