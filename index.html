@@ -395,7 +395,7 @@ footer{background:var(--charcoal);padding:3rem 4rem 2rem;border-top:1px solid rg
     <form action="https://api.web3forms.com/submit" method="POST" class="booking-form reveal">
       <input type="hidden" name="access_key" value="df6dc558-9efa-4dd5-b253-62db5d6ea683"/>
       <input type="hidden" name="subject" value="New Table Reservation - Boho The Sky Cafe"/>
-      <input type="hidden" name="redirect" value="https://boho-sky-cafe.com/thank-you.html"/>
+      <input type="hidden" name="redirect" value="https://bovaweb.github.io/bohotest/?success=true#booking"/>
       <p class="section-label" style="margin-bottom:1.5rem;">Table Booking Form</p>
       <div class="form-row">
         <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Full Name" required/></div>
@@ -618,5 +618,53 @@ function toggleMenu(){
   if(cta)cta.style.display=open?'':'block';
 }
 </script>
+  <script>
+const params = new URLSearchParams(window.location.search);
+
+if (params.get("success") === "true") {
+  const bookingForm = document.querySelector("#booking .booking-form");
+
+  if (bookingForm) {
+    const successBox = document.createElement("div");
+
+    successBox.innerHTML = `
+      <div style="
+        background: linear-gradient(135deg, rgba(196,112,58,0.18), rgba(201,168,76,0.10));
+        border: 1px solid rgba(201,168,76,0.35);
+        color: #F5F0E8;
+        padding: 18px 20px;
+        border-radius: 8px;
+        margin-bottom: 18px;
+        font-family: 'DM Sans', sans-serif;
+        animation: fadeInUp .6s ease;
+      ">
+        <div style="font-size:18px;font-weight:600;margin-bottom:6px;">
+          ✨ Reservation Confirmed
+        </div>
+        <div style="font-size:14px;color:#d8cdbd;line-height:1.6;">
+          Thank you for choosing Boho The Sky Café. We’ve received your booking request and will contact you shortly.
+        </div>
+      </div>
+    `;
+
+    bookingForm.prepend(successBox);
+  }
+
+  history.replaceState({}, document.title, window.location.pathname + "#booking");
+}
+</script>
+
+<style>
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
 </body>
 </html>
