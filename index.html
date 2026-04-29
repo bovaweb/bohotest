@@ -46,7 +46,7 @@ nav.scrolled{background:rgba(18,15,12,0.95);backdrop-filter:blur(20px);padding:0
 .hamburger span{width:22px;height:1.5px;background:var(--gold-light);transition:all 0.3s;}
 
 /* HERO */
-.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero{height:100svh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(18,15,12,0.3) 0%,rgba(18,15,12,0.15) 40%,rgba(18,15,12,0.7) 80%,rgba(18,15,12,0.95) 100%),
   radial-gradient(ellipse at 70% 30%,rgba(196,112,58,0.15) 0%,transparent 60%),
@@ -58,7 +58,7 @@ nav.scrolled{background:rgba(18,15,12,0.95);backdrop-filter:blur(20px);padding:0
 .hero-eyebrow{font-family:var(--font-body);font-size:0.78rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fade-up 1s 0.3s forwards;}
 .hero-title{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7rem);font-weight:300;line-height:1.05;letter-spacing:0.02em;margin-bottom:1.2rem;opacity:0;animation:fade-up 1s 0.5s forwards;}
 .hero-title em{font-style:italic;color:var(--terra-light);}
-.hero-title strong{display:block;font-weight:600;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-title strong{display:block;font-weight:600;color:var(--gold-light);}
 .hero-sub{font-size:1rem;color:var(--text-muted);line-height:1.8;max-width:560px;margin:0 auto 2.5rem;font-weight:300;opacity:0;animation:fade-up 1s 0.7s forwards;}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fade-up 1s 0.9s forwards;}
 .btn-primary{background:linear-gradient(135deg,var(--terracotta),var(--terra-dark));color:var(--cream);padding:1rem 2.4rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.3s;}
@@ -71,7 +71,7 @@ nav.scrolled{background:rgba(18,15,12,0.95);backdrop-filter:blur(20px);padding:0
 @keyframes pulse{0%,100%{opacity:0.5;}50%{opacity:1;}}
 
 /* SECTION COMMONS */
-section{padding:6rem 4rem;}
+section{padding:5.5rem 4rem;}
 .section-label{font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;font-family:var(--font-body);}
 .section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;color:var(--cream);}
 .section-title em{font-style:italic;color:var(--terra-light);}
@@ -81,7 +81,7 @@ section{padding:6rem 4rem;}
 .about{background:linear-gradient(135deg,var(--mid-dark) 0%,var(--dark-bg) 100%);position:relative;overflow:hidden;}
 .about::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(196,112,58,0.06) 0%,transparent 70%);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto;}
-.about-img-stack{position:relative;height:500px;}
+.about-img-stack{position:relative;height:500px;overflow:visible;}
 .about-img-main{width:78%;height:420px;object-fit:cover;border-radius:4px;position:absolute;top:0;right:0;}
 .about-img-accent{width:55%;height:280px;object-fit:cover;border-radius:4px;position:absolute;bottom:0;left:0;border:4px solid var(--dark-bg);}
 .about-badge{position:absolute;top:50%;right:-20px;transform:translateY(-50%);background:var(--terracotta);color:var(--cream);padding:1.2rem;border-radius:50%;width:90px;height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:var(--font-display);}
@@ -118,7 +118,7 @@ section{padding:6rem 4rem;}
 /* GALLERY */
 .gallery{background:var(--mid-dark);overflow:hidden;}
 .gallery-header{text-align:center;margin-bottom:3rem;}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px;gap:6px;max-width:1300px;margin:0 auto;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px;gap:6px;max-width:1300px;margin:0 auto;width:100%;}
 .gallery-item{overflow:hidden;position:relative;cursor:pointer;}
 .gallery-item:first-child{grid-column:span 2;grid-row:span 2;}
 .gallery-item:nth-child(2){grid-column:span 1;grid-row:1;}
@@ -139,7 +139,7 @@ section{padding:6rem 4rem;}
 .booking-perks{list-style:none;display:flex;flex-direction:column;gap:0.8rem;margin-top:2rem;}
 .booking-perks li{display:flex;align-items:center;gap:0.8rem;color:var(--text-muted);font-size:0.88rem;}
 .perk-dot{width:6px;height:6px;border-radius:50%;background:var(--terracotta);flex-shrink:0;}
-.booking-form{background:var(--card-dark);border:1px solid rgba(201,168,76,0.1);border-radius:8px;padding:2.5rem;}
+.booking-form{background:var(--card-dark);border:1px solid rgba(201,168,76,0.1);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
 .form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
 .form-group label{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);}
@@ -161,8 +161,8 @@ section{padding:6rem 4rem;}
 .event-card-content{position:absolute;bottom:0;left:0;right:0;padding:2rem;}
 .event-icon{font-size:2rem;margin-bottom:0.8rem;}
 .event-title{font-family:var(--font-heading);font-size:1.4rem;color:var(--cream);margin-bottom:0.5rem;}
-.event-desc{font-size:0.82rem;color:var(--text-muted);line-height:1.7;transform:translateY(10px);opacity:0;transition:all 0.4s;}
-.event-card:hover .event-desc{transform:translateY(0);opacity:1;}
+.event-desc{font-size:0.82rem;color:var(--text-muted);line-height:1.7;transform:translateY(0);opacity:1;transition:all 0.4s;}
+
 
 /* REVIEWS */
 .reviews{background:var(--mid-dark);}
@@ -194,7 +194,7 @@ section{padding:6rem 4rem;}
 .contact-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
 .contact-val{color:var(--text-muted);font-size:0.9rem;line-height:1.6;}
 .map-container{border-radius:8px;overflow:hidden;border:1px solid rgba(201,168,76,0.1);}
-.map-container iframe{width:100%;height:350px;border:none;filter:grayscale(40%) invert(90%) hue-rotate(180deg);}
+.map-container iframe{width:100%;height:380px;border:none;}
 .social-links{display:flex;gap:1rem;margin-top:1.5rem;}
 .social-btn{display:flex;align-items:center;gap:0.6rem;padding:0.7rem 1.4rem;border:1px solid rgba(201,168,76,0.15);border-radius:4px;color:var(--text-muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:all 0.3s;}
 .social-btn:hover{border-color:var(--gold);color:var(--gold-light);}
@@ -224,23 +224,90 @@ footer{background:var(--charcoal);padding:3rem 4rem 2rem;border-top:1px solid rg
 
 /* MOBILE */
 @media(max-width:900px){
+  /* Nav */
   nav{padding:1rem 1.5rem;}
   nav.scrolled{padding:0.8rem 1.5rem;}
   .nav-links,.nav-cta{display:none;}
   .hamburger{display:flex;}
-  section{padding:4rem 1.5rem;}
-  .about-grid,.booking-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
-  .about-img-stack{height:300px;}
-  .events-grid{grid-template-columns:1fr;}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
-  .gallery-item:first-child{grid-column:span 2;}
-  .gallery-item:nth-child(4){grid-column:span 1;}
+
+  /* Sections */
+  section{padding:3.5rem 1.2rem;}
+
+  /* Hero fixes */
+  .hero-title{font-size:clamp(2.2rem,9vw,3.5rem);line-height:1.1;}
+  .hero-sub{font-size:0.88rem;padding:0 0.5rem;}
+  .hero-btns{flex-direction:column;align-items:center;gap:0.7rem;}
+  .btn-primary,.btn-outline{width:100%;max-width:260px;text-align:center;padding:0.9rem 1.5rem;}
+  .hero-scroll{display:none;}
+
+  /* About */
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .about-img-stack{height:260px;margin-bottom:1rem;}
+  .about-img-main{width:72%;height:220px;right:0;}
+  .about-img-accent{width:52%;height:160px;}
+  .about-badge{right:0;width:72px;height:72px;padding:0.8rem;}
+  .about-badge strong{font-size:1.2rem;}
+  .about-stats{grid-template-columns:repeat(3,1fr);}
+
+  /* Menu */
+  .menu-tabs{gap:0.4rem;}
+  .tab-btn{padding:0.5rem 0.9rem;font-size:0.72rem;}
+  .menu-category.active{grid-template-columns:1fr;}
+
+  /* Gallery — 2 col clean grid, no orphaned items */
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:repeat(3,200px);
+  }
+  .gallery-item:first-child{grid-column:span 2;grid-row:span 1;}
+  .gallery-item:nth-child(2){grid-column:span 1;grid-row:auto;}
+  .gallery-item:nth-child(3){grid-column:span 1;grid-row:auto;}
+  .gallery-item:nth-child(4){grid-column:span 1;grid-row:auto;}
+  .gallery-item:nth-child(5){grid-column:span 1;grid-row:auto;}
+
+  /* Booking */
+  .booking-grid{grid-template-columns:1fr;gap:2rem;}
   .form-row{grid-template-columns:1fr;}
-  .review-card{flex:0 0 calc(100% - 0rem);}
-  .footer-inner{flex-direction:column;text-align:center;}
-  .footer-links{flex-wrap:wrap;justify-content:center;}
-  .hero-title{font-size:clamp(2.5rem,10vw,4rem);}
+
+  /* Events */
+  .events-grid{grid-template-columns:1fr;gap:1rem;}
+  .event-card{height:300px;}
+  .event-desc{opacity:1;transform:none;}
+
+  /* Reviews */
+  .review-card{flex:0 0 100%;}
+  .reviews-slider{overflow:hidden;}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr;gap:2rem;}
+  .map-container iframe{height:260px;}
+  .social-links{flex-wrap:wrap;gap:0.6rem;}
+  .social-btn{flex:1;min-width:calc(50% - 0.3rem);justify-content:center;font-size:0.72rem;padding:0.6rem 0.8rem;}
+
+  /* Footer */
+  footer{padding:2rem 1.5rem;}
+  .footer-inner{flex-direction:column;text-align:center;gap:1.5rem;}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:1rem;}
+  .footer-socials{justify-content:center;}
 }
+
+/* SUCCESS MODAL */
+.success-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease;}
+.success-overlay.show{opacity:1;pointer-events:all;}
+.success-overlay-bg{position:absolute;inset:0;background:rgba(12,9,6,0.88);backdrop-filter:blur(10px);}
+.success-modal{position:relative;z-index:1;background:var(--card-dark);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:3rem 2.5rem;max-width:480px;width:100%;text-align:center;transform:translateY(30px) scale(0.97);transition:transform 0.4s ease;box-shadow:0 30px 80px rgba(0,0,0,0.6);}
+.success-overlay.show .success-modal{transform:translateY(0) scale(1);}
+.success-check{width:72px;height:72px;background:linear-gradient(135deg,rgba(196,112,58,0.15),rgba(201,168,76,0.1));border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2rem;}
+.success-title{font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:0.6rem;}
+.success-title em{font-style:italic;color:var(--terra-light);}
+.success-sub{color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:0.5rem;}
+.success-detail{font-size:0.82rem;color:var(--text-dim);margin-bottom:2rem;padding:1rem;border:1px solid rgba(201,168,76,0.1);border-radius:6px;background:rgba(255,255,255,0.02);}
+.success-actions{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;}
+.success-close{background:linear-gradient(135deg,var(--terracotta),var(--terra-dark));color:var(--cream);border:none;padding:0.85rem 2rem;border-radius:4px;font-family:var(--font-body);font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
+.success-close:hover{background:linear-gradient(135deg,var(--terra-light),var(--terracotta));}
+.success-wa{display:flex;align-items:center;gap:0.5rem;background:#25D366;color:#fff;border:none;padding:0.85rem 1.5rem;border-radius:4px;font-family:var(--font-body);font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;}
+.success-wa:hover{background:#1da855;}
+.success-confetti{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--terracotta),var(--gold),var(--terra-light),var(--gold),var(--terracotta));border-radius:12px 12px 0 0;}
 </style>
 </head>
 <body>
@@ -393,9 +460,8 @@ footer{background:var(--charcoal);padding:3rem 4rem 2rem;border-top:1px solid rg
       </ul>
     </div>
     <form action="https://api.web3forms.com/submit" method="POST" class="booking-form reveal">
-      <input type="hidden" name="access_key" value="df6dc558-9efa-4dd5-b253-62db5d6ea683"/>
+      <input type="hidden" name="access_key" value="YOUR_NEW_ACCESS_KEY"/>
       <input type="hidden" name="subject" value="New Table Reservation - Boho The Sky Cafe"/>
-      <input type="hidden" name="redirect" value="https://bovaweb.github.io/bohotest/?success=true#booking"/>
       <p class="section-label" style="margin-bottom:1.5rem;">Table Booking Form</p>
       <div class="form-row">
         <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Full Name" required/></div>
@@ -525,7 +591,7 @@ footer{background:var(--charcoal);padding:3rem 4rem 2rem;border-top:1px solid rg
       </div>
     </div>
     <div class="map-container reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.2!2d88.3920!3d22.4627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027b6b6c8e8c17%3A0x8c8e8f5f5f5f5f5f!2sKavi%20Nazrul%20Metro%20Station%2C%20Garia%2C%20Kolkata!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.876454026338!2d88.38904507519485!3d22.46286537958957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0270be2f576db7%3A0xf5c99c27e92af9a8!2sBoho%20The%20Sky%20Cafe-%20Garia!5e0!3m2!1sen!2sin!4v1714299600000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -588,9 +654,12 @@ let reviewPos=0;
 function scrollReviews(dir){
   const track=document.getElementById('reviewsTrack');
   const cards=track.querySelectorAll('.review-card');
-  const max=cards.length-3;
+  const isMobile=window.innerWidth<=900;
+  const visible=isMobile?1:3;
+  const max=cards.length-visible;
   reviewPos=Math.max(0,Math.min(max,reviewPos+dir));
-  const w=cards[0].offsetWidth+24;
+  const gap=24;
+  const w=cards[0].offsetWidth+gap;
   track.style.transform='translateX(-'+reviewPos*w+'px)';
 }
 
@@ -600,13 +669,53 @@ const observer=new IntersectionObserver(entries=>{
 },{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-// Booking submit
-function submitBooking(){
-  const btn=document.querySelector('.btn-submit');
-  btn.textContent='✓ Reservation Confirmed!';
-  btn.style.background='linear-gradient(135deg,#2d7a4f,#1a5c39)';
-  setTimeout(()=>{btn.textContent='Confirm Reservation →';btn.style.background='';},3000);
+// Booking form — AJAX submit, no redirect
+const bookingForm = document.querySelector('form[action*="web3forms"]');
+if(bookingForm){
+  bookingForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = this.querySelector('.btn-submit');
+    const origText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    try {
+      const data = new FormData(this);
+      const res = await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
+      const json = await res.json();
+      if(json.success){
+        const name = data.get('name') || '';
+        const date = data.get('date') || '';
+        const time = data.get('time') || '';
+        const guests = data.get('guests') || '';
+        const occasion = data.get('occasion') || '';
+        const detail = document.getElementById('successDetail');
+        if(detail){
+          detail.innerHTML = '<strong style="color:var(--cream)">' + name + '</strong> &nbsp;&middot;&nbsp; ' + guests + ' &nbsp;&middot;&nbsp; ' + date + ' at ' + time + '<br><span style="color:var(--terra-light)">' + occasion + '</span><br><br>We\'ll confirm via WhatsApp or call shortly.';
+        }
+        showSuccess();
+        bookingForm.reset();
+      } else {
+        alert('Something went wrong. Please WhatsApp us at +91 74391 99157');
+      }
+    } catch(err){
+      alert('Network error. Please WhatsApp us at +91 74391 99157');
+    }
+    btn.textContent = origText;
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  });
 }
+
+function showSuccess(){
+  document.getElementById('successOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeSuccess(){
+  document.getElementById('successOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeSuccess(); });
 
 // Mobile menu (simple toggle for nav)
 function toggleMenu(){
@@ -618,5 +727,24 @@ function toggleMenu(){
   if(cta)cta.style.display=open?'':'block';
 }
 </script>
+
+<!-- SUCCESS MODAL -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-overlay-bg" onclick="closeSuccess()"></div>
+  <div class="success-modal">
+    <div class="success-confetti"></div>
+    <div class="success-check">🎉</div>
+    <h2 class="success-title">Table <em>Reserved!</em></h2>
+    <p class="success-sub">Thank you! Your reservation request has been sent to Boho The Sky Café.</p>
+    <div class="success-detail" id="successDetail">We'll confirm your booking via WhatsApp or call shortly.</div>
+    <div class="success-actions">
+      <button class="success-close" onclick="closeSuccess()">Back to Site</button>
+      <a href="https://wa.me/917439199157" class="success-wa" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
